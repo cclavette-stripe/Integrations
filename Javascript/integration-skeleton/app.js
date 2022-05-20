@@ -4,7 +4,7 @@ const express = require('express');
 //express app + layouts
 const app = express();
 var expressLayouts = require('express-ejs-layouts');
-const stripe = require('stripe')('sk_test_WeTdH0dZDGzU2haZwNWn75LP00kj5GM1Ib');
+const stripe = require('stripe')(process.env.SEC_KEY);
 app.use(express.urlencoded());
 app.use(express.static('static'))
 

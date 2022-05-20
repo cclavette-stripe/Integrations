@@ -1,4 +1,4 @@
-const stripe = require('stripe')('sk_test_WeTdH0dZDGzU2haZwNWn75LP00kj5GM1Ib');
+const stripe = require('stripe')(process.env.SEC_KEY);
 const express = require('express');
 const app = express();
 
@@ -13,7 +13,6 @@ app.post('/create-payment-intent', async (req, res) => {
         automatic_payment_methods: {
             enabled: true,
         },
-        payment_method: 'pm_1Klm13ILwdSSnvJb423LderZ'
     });
 });
 
