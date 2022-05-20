@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Checkout</title>
+    <script src="https://js.stripe.com/v3/"></script>
+    <script src="client.js" defer></script>
+</head>
+
+<body>
+    <div>Create Standard account</insert></div>
+    <form id="create-account-form">
+        <button id="submit" value="submit-create">Create Standard Account</button>
+    </form>
+    <br />
+    <form id="generate-link-form" hidden>
+        <div id="secret-div">
+            <input id="account-id">
+            <br />
+            <button id="submit-generate" value="submit-generate">Generate account link</button>
+        </div>
+    </form>
+    <br />
+    <input id="link-url" hidden>
+</body>

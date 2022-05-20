@@ -1,0 +1,54 @@
+<html lang="en">
+
+<body>
+    <h1>Connect Page</h1>
+    <h2>-----------------------------------------------</h2>
+    <h3>Custom Onboarding (Individual)</h3>
+    <form action="create-custom-account" method="POST">
+        <div>
+            <p>Verified?
+                <input type="radio" id="verified" name="verified" value="true" checked>
+                <label for="verified">True</label>
+                <input type="radio" id="verified" name="verified" value="false">
+                <label for="verified">False</label>
+            </p>
+        </div>
+        <div>
+            <p>Info to collect:</p>
+            <input type="checkbox" id="name" name="name" checked>
+            <label for="name">Name</label>
+            <input type="checkbox" id="dob" name="dob" checked>
+            <label for="dob">DOB</label>
+            <input type="checkbox" id="address" name="address" checked>
+            <label for="address">Address</label><br>
+            <input type="checkbox" id="email" name="email" checked>
+            <label for="email">Email</label>
+            <input type="checkbox" id="phone" name="phone" checked>
+            <label for="phone">Phone</label>
+            <input type="checkbox" id="ssn" name="ssn" checked>
+            <label for="ssn">SSN</label>
+            <input type="checkbox" id="tos" name="tos" checked>
+            <label for="tos">TOS</label>
+        </div>
+        <div>
+            <p>How many would you like to generate?</p>
+            <input type="text" id="total" name="total" value="1">
+        </div><br>
+        <div>
+            <button type="submit" id="account-button">Generate Connect Accounts</button>
+        </div>
+    </form>
+    <br />
+    <h2>-----------------------------------------------</h2>
+    <h3>Generate Account Link</h3>
+    <p>This generates an account link then redirects to it (see: <a
+            href="https://stripe.com/docs/api/account/create_login_link">https://stripe.com/docs/api/account/create_login_link</a>)
+    </p>
+    <form action="create-account-link" method="POST">
+        Account ID: <input id="account">
+        <br />
+        <button id="submit-account-id" value="submit-account-id">Generate URL</button>
+    </form>
+</body>
+
+</html>
