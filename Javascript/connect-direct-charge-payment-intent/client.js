@@ -1,4 +1,4 @@
-var stripe = Stripe('pk_test_RDRfnGAPN0nn2zXL7zkWFrEz', {
+var stripe = Stripe(process.env.PUB_KEY, {
     stripeAccount: "acct_1KqOHIDLXCJQbu9g"
   });
 var elements = stripe.elements();

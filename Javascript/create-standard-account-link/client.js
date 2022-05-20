@@ -1,6 +1,6 @@
 // Set your publishable key: remember to change this to your live publishable key in production
 // See your keys here: https://dashboard.stripe.com/apikeys
-var stripe = Stripe('pk_test_RDRfnGAPN0nn2zXL7zkWFrEz');
+var stripe = Stripe(process.env.PUB_KEY);
 
 // Set up Stripe.js and Elements to use in checkout form
 var style = {

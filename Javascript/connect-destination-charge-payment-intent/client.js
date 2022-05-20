@@ -1,4 +1,4 @@
-var stripe = Stripe('pk_test_RDRfnGAPN0nn2zXL7zkWFrEz');
+var stripe = Stripe(process.env.PUB_KEY);
 var elements = stripe.elements();
 
 // Set up Stripe.js and Elements to use in checkout form
