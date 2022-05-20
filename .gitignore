@@ -263,3 +263,6 @@ __pycache__/
 # PKG
 bootstrap/
 *.json
+
+# Mac
+.DS_store
