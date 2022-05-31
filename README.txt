@@ -4,7 +4,7 @@
 
 This is a repository of all the scripts included in the spin-up checklist (see: https://paper.dropbox.com/doc/TSS-Onboarding-Checklist-Coreys-Copy--Bh3oC4OnOXBZWJbCNzWgdOYZAg-VseUS440R0crR8l3SLWBw) as well as some additional scripts I wrote as-needed to make my core work easier.
 
-Scripts and integrations not part of spin-up include:
+At the time of first commit, these are the scripts/integrations I added that are NOT part of the spin-up Checklist:
     - Javascript
         - blocked-by-cors-policy
         - integration-skeleton
