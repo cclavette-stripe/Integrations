@@ -1,7 +1,11 @@
-// Set your publishable key: remember to change this to your live publishable key in production
-// See your keys here: https://dashboard.stripe.com/apikeys
+// Steps to reproduce:
+// 1. Create customer
+// 2. Attach the test card (4000003560000065) as default payment method
+// 3. Create an subscription with recurring price for that customer
+// 5. Use test clock to advance past payment on the first invoice
+// 6. Card is used to successfully create a charge
 
-var stripe = Stripe('pk_test_51E7YoAILwdSSnvJbYXbLCN7UWIIdQqSL7pylRkdnvviU67fEUa4NOS0FnHThGINQNpgt2mEFvs3DgZCG5r78XrDZ00FzYvokfs');
+var stripe = Stripe('pk_test_51L6QUkSIhABC667DZ9n85VEOzUKkqCfIwnZr8r2RDpaXMcubtiOtE9PrvTvxuuDqmn4c817oEYuscdX0RqLcXJKR00Zj0exMSP');
 var elements = stripe.elements();
 
 // Set up Stripe.js and Elements to use in checkout form

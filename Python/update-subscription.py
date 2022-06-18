@@ -9,9 +9,11 @@ stripe.api_key = STRIPE_SECRET_KEY
 # DEFINE FUNCTIONS
 def change_sub():
     sub = stripe.Subscription.modify(
-        "sub_1Kt1NuILwdSSnvJbGPKam3aE",
+        "sub_1L611iILwdSSnvJbRSSIjEob",
+        proration_behavior='none',
         items = [{
-            "price": "price_1Kv8VmILwdSSnvJbIUp5JC1p"
+            "id": "si_LncGW32Pki9eDv",
+            'quantity': 2
         }],
 )
 
