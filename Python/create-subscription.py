@@ -23,7 +23,7 @@ def create_product():
 def create_price(prod_id):
     return stripe.Price.create(
         product=prod_id,
-        unit_amount=15000,
+        unit_amount=1,
         nickname='Monthly recurring price',
         recurring={
             "interval": "month"

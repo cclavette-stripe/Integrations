@@ -11,10 +11,11 @@ def change_sub():
     sub = stripe.Subscription.modify(
         "sub_1L611iILwdSSnvJbRSSIjEob",
         proration_behavior='none',
-        items = [{
-            "id": "si_LncGW32Pki9eDv",
-            'quantity': 2
-        }],
+        billing_cycle_anchor= 1659807119,
+        # items = [{
+        #     "id": "si_LncGW32Pki9eDv",
+        #     'quantity': 2
+        # }],
 )
 
     print(sub)

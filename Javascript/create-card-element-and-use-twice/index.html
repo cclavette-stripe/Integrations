@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Checkout</title>
+    <script src="https://js.stripe.com/v3/"></script>
+    <script src="client.js" defer></script>
+</head>
+
+<body>
+    <div>My card element!</div>
+    <form id="payment-form">
+        <div id="card-element">
+            <input id="card-number" />
+        </div>
+
+        <!-- We'll put the error messages in this element -->
+        <div id="card-errors" role="alert"></div>
+        <button id="submit" value="submit-create">Create Payment Intent</button>
+    </form>
+    <br />
+    <form id="confirm-form" hidden>
+        <div id="secret-div">
+            <input id="client-secret">
+            <input id="payment-method">
+            <br />
+            <button id="submit-confirm" value="submit-confirm">Confirm</button>
+            <button id="submit-cancel" value="submit-cancel">Cancel</button>
+            <button id="submit-save" value="submit-save">Save PM for Later</button>
+        </div>
+    </form>
+    <br />
+    <form id="capture-form" hidden>
+        <div id="secret-div">
+            <p>Payment intent was confirmed and payment method was authorized successfully!</p>
+            <p>What would you like to do now?</p>
+            <br />
+            Payment intent: <input id="payment-intent">
+            <br />
+            Amount: <input id="charge-amount">
+            <br />
+            <button id="submit-full" value="submit-full">Full Capture</button>
+            <button id="submit-partial" value="submit-partial">Partial Capture</button>
+        </div>
+    </form>
+
+    <div id="hidden-cancel" hidden>
+        <p>Payment intent has been canceled!</p>
+        <br />
+    </div>
+    <div id="hidden-full" hidden>
+        <p>Payment intent has been fully captured!</p>
+        <br />
+    </div>
+    <div id="hidden-partial" hidden>
+        <p>Payment intent has been partially captured!</p>
+        <br />
+    </div>
+    <form id="refund-form" hidden>
+        <p>Would you like to refund the following payment-intent? </p>
+        <input id="refund-payment">
+        <button id="submit-refund" value="submit-refund">Refund</button>
+    </form>
+    <div id="hidden-refund" hidden>
+        <p>Payment intent has been refunded!</p>
+        <br />
+    </div>
+    <div id="hidden-save" hidden>
+        <p>Payment method has been saved and can now be charged at a later time!</p>
+        <br />
+    </div>
+</body>

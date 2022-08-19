@@ -15,7 +15,7 @@ def test():
 
 def main():
     # testing Stripe instance properly configured
-    print(test())
+    test()
     
     
 if __name__ == "__main__":

@@ -18,7 +18,7 @@ app.post('/create-checkout-session', async (req, res) => {
             // Provide the exact Price ID (for example, pr_1234) of the product you want to sell
             price: 'price_1KUgoCILwdSSnvJbHcrS5qHd',
             quantity: 1,
-            tax_rates: ['']
+            // tax_rates: ['']
         },
         ],
         // automatic_tax: {
@@ -28,6 +28,7 @@ app.post('/create-checkout-session', async (req, res) => {
         automatic_tax: {enabled: true},
         success_url: `http://localhost:3000`,
         cancel_url: `http://localhost:3000/`,
+        allow_promotion_codes: true
     });
     
     res.redirect(303, session.url);
