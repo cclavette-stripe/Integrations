@@ -35,6 +35,7 @@ def create_invoice_item():
 def create_invoice():
     return stripe.Invoice.create(
         customer=new_customer.id,
+        expand=['payment_intent']
     )
 
 def main():

@@ -7,7 +7,7 @@ app.use(express.json());
 
 app.post('/create-login-link', async (req, res) => {
     const loginLink = await stripe.accounts.createLoginLink(
-        'acct_1L0ajSRAzYcRRMwc',
+        'acct_1Lrr5tRG5ewMum6t',
         {
             redirect_url: 'http://127.0.0.1:3000/'
         }

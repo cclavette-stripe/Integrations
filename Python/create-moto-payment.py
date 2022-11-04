@@ -13,6 +13,6 @@ print(stripe.PaymentIntent.create(
   customer="cus_MRGqlag0JKvfwM",
   payment_method="pm_1LiOJ1ILwdSSnvJbY9IRwNli",
   payment_method_options={"card": {"moto": True}},
-  automatic_payment_methods={"enabled": "true"},
+  # automatic_payment_methods={"enabled": "true"},
   confirm=True
 ))

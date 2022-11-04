@@ -7,21 +7,16 @@ STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY')
 stripe.api_key = STRIPE_SECRET_KEY
 
 # DEFINE FUNCTIONS
-def update_account():
-    account = stripe.Account.modify(
-        "acct_1L0ajSRAzYcRRMwc",
-        capabilities={
-            "transfers": {
-                "requested": False
-            }
-        }
-    )
-    print(account)
+def test():
+    cs = stripe.checkout.Session.expire(
+  "cs_test_a180oxmgkoEYhrnmLSWR60xI6yVQ0r4s3tPBdTZxHMLr5kEQvaRg5vS38x",
+)
+    print(cs)
 
 
 def main():
     # testing Stripe instance properly configured
-    print(update_account())
+    test()
     
     
 if __name__ == "__main__":

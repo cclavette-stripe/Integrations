@@ -9,10 +9,10 @@ stripe.api_key = STRIPE_SECRET_KEY
 # DEFINE FUNCTIONS
 def login_link():
     link = stripe.Account.create_login_link(
-        'acct_1LJP2dRDhpl6N4f1', 
+        'acct_1L0ajSRAzYcRRMwc', 
         redirect_url='https://www.someurl.com'
     )
-    print(link)
+    return(link)
 
 
 def main():

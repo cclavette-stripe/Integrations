@@ -11,7 +11,7 @@ def transfer():
     return stripe.Transfer.create(
         amount=400,
         currency="usd",
-        destination="acct_1KqOHIDLXCJQbu9g",
+        destination="acct_1L0ajSRAzYcRRMwc",
 )
 
 

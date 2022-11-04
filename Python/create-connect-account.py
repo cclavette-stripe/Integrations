@@ -10,7 +10,8 @@ stripe.api_key = STRIPE_SECRET_KEY
 def create_account():
 
     account = stripe.Account.create(
-        type="express"
+        type="custom",
+        email="seedfoundry.dev@gmail.com"
     )
 
     print(account)
