@@ -18,7 +18,7 @@ const createLocation = async () => {
   const location = await stripe.terminal.locations.create({
     display_name: 'HQ',
     address: {
-      line1: '1272 Valencia Street',
+      line1: '1272 Valencia Street', 
       city: 'San Francisco',
       state: 'CA',
       country: 'US',

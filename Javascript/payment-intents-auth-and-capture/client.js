@@ -2,7 +2,7 @@
 // See your keys here: https://dashboard.stripe.com/apikeys
 
 var stripe = Stripe('pk_test_51E7YoAILwdSSnvJbYXbLCN7UWIIdQqSL7pylRkdnvviU67fEUa4NOS0FnHThGINQNpgt2mEFvs3DgZCG5r78XrDZ00FzYvokfs');
-var elements = stripe.elements();
+var elements = stripe.elements({locale: 'fr_FR'});
 
 // Set up Stripe.js and Elements to use in checkout form
 var style = {

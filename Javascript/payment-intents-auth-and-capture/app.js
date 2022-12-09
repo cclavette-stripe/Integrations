@@ -7,12 +7,13 @@ app.use(express.json());
 
 app.post('/create-payment-intent', async (req, res) => {
     const paymentIntent = await stripe.paymentIntents.create({
-        amount: 00,
+        amount: 500,
         currency: 'usd',
         capture_method: 'manual',
         automatic_payment_methods: {
             enabled: true,
         },
+        setup_future_usage: 'off_session'
     });
 
     res.send({ clientSecret: paymentIntent.client_secret });
@@ -45,7 +46,7 @@ app.post('/create-customer', async (req, res) => {
         paymentIntentId,
         {
             customer: customer.id,
-            setup_future_usage: 'off_session',
+            // setup_future_usage: 'off_session',
         }
       );
 

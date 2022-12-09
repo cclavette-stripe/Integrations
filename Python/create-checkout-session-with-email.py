@@ -14,13 +14,16 @@ def test():
 
     session = stripe.checkout.Session.create(
         line_items=[{
-            'price': 'price_1MCSPjILwdSSnvJbyS2j8lQ3',
-            'quantity': 1
+            'name': 'Stainless Steel Water Bottle',
+            'amount': 1000,
+            'currency': 'usd',
+            'quantity': 1,
         }],
         mode='payment',
-        allow_promotion_codes=True,
         success_url='https://example.com/success',
         cancel_url='https://example.com/cancel',
+        # customer_email='asdfasdf@asdfasd.com'
+        client_reference_id='cus_MoXpjh3fBRFnXV'
     )
     print(session)
 

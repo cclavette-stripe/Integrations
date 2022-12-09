@@ -5,25 +5,17 @@ from dotenv import load_dotenv
 load_dotenv()  # load .env defined environment
 STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY')
 stripe.api_key = STRIPE_SECRET_KEY
-stripe.api_version = "2018-02-28"
 
 # DEFINE FUNCTIONS
 
 
 def test():
-
-    session = stripe.checkout.Session.create(
-        line_items=[{
-            'price': 'price_1MCSPjILwdSSnvJbyS2j8lQ3',
-            'quantity': 1
-        }],
-        mode='payment',
-        allow_promotion_codes=True,
-        success_url='https://example.com/success',
-        cancel_url='https://example.com/cancel',
+    link = stripe.PaymentLink.create(
+        line_items=[{"price": 'price_1L60tLILwdSSnvJbzHAcYLpN', "quantity": 1}],
+        allow_promotion_codes=True
     )
-    print(session)
-
+   
+    print(link)
 
 def main():
     # testing Stripe instance properly configured
@@ -33,3 +25,5 @@ def main():
 if __name__ == "__main__":
     # This will run if this file is invoked from the command line
     main()
+
+

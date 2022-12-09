@@ -5,24 +5,14 @@ from dotenv import load_dotenv
 load_dotenv()  # load .env defined environment
 STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY')
 stripe.api_key = STRIPE_SECRET_KEY
-stripe.api_version = "2018-02-28"
 
 # DEFINE FUNCTIONS
 
 
 def test():
 
-    session = stripe.checkout.Session.create(
-        line_items=[{
-            'price': 'price_1MCSPjILwdSSnvJbyS2j8lQ3',
-            'quantity': 1
-        }],
-        mode='payment',
-        allow_promotion_codes=True,
-        success_url='https://example.com/success',
-        cancel_url='https://example.com/cancel',
-    )
-    print(session)
+    customer = stripe.Customer.create()
+    print(customer)
 
 
 def main():

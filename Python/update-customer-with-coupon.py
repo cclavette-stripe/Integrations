@@ -7,24 +7,17 @@ STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY')
 stripe.api_key = STRIPE_SECRET_KEY
 
 # DEFINE FUNCTIONS
-def change_sub():
-    sub = stripe.Subscription.modify(
-        "sub_1L611iILwdSSnvJbRSSIjEob",
-        proration_behavior='none',
-        trial_end=1668549252
-        # billing_cycle_anchor= 1659807119,
-        # items = [{
-        #     "id": "si_LncGW32Pki9eDv",
-        #     'quantity': 2
-        # }],
-)
+def update_customer():
+    return stripe.Customer.modify(
+        'cus_MjDSamUmplU1Ro',
+        coupon='S5qIIcfa'
+    )
 
-    print(sub)
 
 def main():
     # testing Stripe instance properly configured
-    change_sub()
-    
+    print(update_customer())
+
     
 if __name__ == "__main__":
     # This will run if this file is invoked from the command line
