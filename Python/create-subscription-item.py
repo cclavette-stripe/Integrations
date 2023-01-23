@@ -9,18 +9,18 @@ stripe.api_key = STRIPE_SECRET_KEY
 # DEFINE FUNCTIONS
 
 
-def transfer():
-    return stripe.Transfer.create(
-        amount=100000,
-        currency="usd",
-        source_transaction="ch_3MTZI3ILwdSSnvJb1OhX1b9J",
-        destination="acct_1KbCDrRNufchDxGg",
+def create_item():
+    new_item = stripe.SubscriptionItem.create(
+        subscription="sub_1Lrs7fILwdSSnvJbgUvNMOG4",
+        price="price_1MF3hIILwdSSnvJboONkJYon",
+        quantity=2,
     )
+
+    print(new_item)
 
 
 def main():
-    # testing Stripe instance properly configured
-    print(transfer())
+    create_item()
 
 
 if __name__ == "__main__":

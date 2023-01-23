@@ -9,8 +9,8 @@ app.post('/', express.json({ type: 'application/json' }), (req, res) => {
     const event = req.body;
     const event_object = event.data.object;
     // Handle the event
-    switch (event.type) {
-        case 'payment_intent.succeeded':
+switch (event.type) {
+    case 'payment_intent.succeeded':
             console.log(`PaymentIntent for ${event_object.amount} was successful!`);
             break;
         case 'payment_intent.canceled':

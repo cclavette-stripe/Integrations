@@ -22,7 +22,7 @@ def create_price():
 def create_customer():
     return stripe.Customer.create(
         name="Some Guy",
-        email='kjasdij234iub23krje@lknsdflknqo32.com'
+        email='cclavette@stripe.com'
         ## Reminder that test-mode emails must be manually sent via DB, Stripe will not auto-send them
     )
 

@@ -9,26 +9,17 @@ stripe.api_key = STRIPE_SECRET_KEY
 # DEFINE FUNCTIONS
 
 
-def create_quote():
-    quote = stripe.Quote.create(
-        customer="cus_EiZOLZ4ZPiejyu",
-        line_items=[
-            {
-                "price_data": {
-                    
-                }
-            },
-        ],
-        discounts=[
-            {'coupon': 'S5qIIcfa'}
-        ]
+def test():
+
+    sub_sched = stripe.SubscriptionSchedule.create(
+        from_subscription="sub_1LAhO1ILwdSSnvJb5GZjOEUC"
     )
-    print(quote)
+    print(sub_sched)
 
 
 def main():
     # testing Stripe instance properly configured
-    print(create_quote())
+    test()
 
 
 if __name__ == "__main__":

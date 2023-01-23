@@ -16,10 +16,6 @@ def test():
         line_items=[{
             'price': 'price_1MF3haILwdSSnvJbkv1vG2Uh',
             'quantity': 1
-        },
-        {
-            'price': 'price_1MF3hIILwdSSnvJboONkJYon',
-            'quantity': 1
         }],
         mode='subscription',
         allow_promotion_codes=True,

@@ -12,8 +12,8 @@ stripe.api_key = STRIPE_SECRET_KEY
 def test():
 
     payment = stripe.PaymentIntent.modify(
-        "py_1LNKMvRAzYcRRMwc6NJdtfRo",
-        metadata={"order_id": "6735"},
+        "pi_3MPsjrILwdSSnvJb1F6TPkcZ",
+        receipt_email="cclavette@stripe.com",
     )
     print(payment)
 

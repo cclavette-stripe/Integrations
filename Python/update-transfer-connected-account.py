@@ -18,7 +18,7 @@ def test():
     # )
 
     transfer = stripe.Transfer.modify(
-        "tr_1LNKMvILwdSSnvJbuVcqyF2Q",
+        "py_1MS2n5RNufchDxGgx0ugPX6P",
         metadata={"order_id": "6735"}
     )
 

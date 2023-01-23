@@ -23,7 +23,7 @@ def create_product():
 def create_price(prod_id):
     return stripe.Price.create(
         product=prod_id,
-        unit_amount=10000,
+        unit_amount=1,
         nickname='Monthly recurring price',
         recurring={
             "interval": "month"
@@ -35,18 +35,16 @@ def create_pm():
     return stripe.PaymentMethod.create(
         type="card",
         card={
-            "number": "4242424242424242",
+            "number": "4000001240000000",
             "exp_month": 5,
             "exp_year": 2023,
             "cvc": "314",
         },
     )
 
-def create_customer(name, pm):
-    return stripe.Customer.create(
-        name=name,
-        payment_method=pm
-    )
+def retrieve_customer(name, pm):
+    return stripe.Customer.retrieve("cus_N95FjHGA4a7AgR")
+
 
 def update_customer(cus_id, pm):
     return stripe.Customer.modify(
@@ -65,7 +63,7 @@ def attach_pm(cus_id, pm):
 def create_sub(cus_id, price_id):
     return stripe.Subscription.create(
     customer=cus_id,
-    off_session=False,
+    currency='CAD',
     items=[
         {
         "price": price_id,
@@ -75,7 +73,7 @@ def create_sub(cus_id, price_id):
 
 def main():
     new_pm = create_pm()
-    new_customer = create_customer('Gretchen Zimmer', new_pm)
+    new_customer = retrieve_customer('Harry Style', new_pm)
     attach_pm(new_customer.id, new_pm.id)
     update_customer(new_customer.id, new_pm.id)
     new_product = create_product()

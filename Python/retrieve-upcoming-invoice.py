@@ -15,10 +15,10 @@ def get_invoice():
         ##subscription_billing_cycle_anchor = 'unchanged',
         ##subscription_trial_end = 'now',
         # subscription_proration_date=1652501042,
-        # subscription_items = [{
-        #     'id': 'si_LgSYRxuUN781q2',
-        #     'quantity': 100
-        # }],
+        subscription_items = [{
+            'id': 'si_LgSYRxuUN781q2',
+            'quantity': 100
+        }],
     )
 
     print(inv)

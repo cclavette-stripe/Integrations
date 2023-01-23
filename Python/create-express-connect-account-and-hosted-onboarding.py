@@ -12,7 +12,7 @@ account_id = ''
 def create_account():
 
     account = stripe.Account.create(
-        country='FR',
+        country='US',
         type='express',
         settings={'payouts': {'schedule': {'interval': 'manual'}}},
     )

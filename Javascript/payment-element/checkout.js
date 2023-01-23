@@ -24,7 +24,13 @@
       
         const appearance = {
           theme: 'stripe',
+          rules: {
+            '.Label': {
+              color: 'purple',
+            },
+          }
         };
+
         elements = stripe.elements({ appearance, clientSecret });
       
         const paymentElement = elements.create("payment");
