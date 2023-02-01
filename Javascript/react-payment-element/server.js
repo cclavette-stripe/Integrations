@@ -3,7 +3,7 @@ const app = express();
 // This is your test secret API key.
 const stripe = require("stripe")(process.env.SEC_KEY);
 
-app.use(express.static("."));
+app.use(express.static("public"));
 app.use(express.json());
 
 const calculateOrderAmount = (items) => {
@@ -20,9 +20,6 @@ app.post("/create-payment-intent", async (req, res) => {
   const paymentIntent = await stripe.paymentIntents.create({
     amount: calculateOrderAmount(items),
     currency: "usd",
-    // payment_method_types: [
-    //   "card"
-    // ]
     automatic_payment_methods: {
       enabled: true,
     },
@@ -33,4 +30,7 @@ app.post("/create-payment-intent", async (req, res) => {
   });
 });
 
-app.listen(3000, () => console.log("Node server listening on port 3000!"));
+app.listen(4242, () => console.log("Node server listening on port 4242!"));
+
+Copy
+

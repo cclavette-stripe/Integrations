@@ -23,7 +23,7 @@ def test():
         success_url='https://example.com/success',
         cancel_url='https://example.com/cancel',
         # customer_email='asdfasdf@asdfasd.com'
-        client_reference_id='cus_MoXpjh3fBRFnXV'
+        stripe_account="acct_1KqOHIDLXCJQbu9g"
     )
     print(session)
 
