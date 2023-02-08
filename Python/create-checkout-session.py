@@ -21,6 +21,7 @@ def test():
         allow_promotion_codes=True,
         success_url='https://example.com/success',
         cancel_url='https://example.com/cancel',
+        idempotency_key='u6rjmgMlligPRlUf'
     )
     print(session)
 

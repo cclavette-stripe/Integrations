@@ -1,7 +1,7 @@
 // This is a public sample test API key.
 // Don’t submit any personally identifiable information in requests made with this key.
 // Sign in to see your own test API key embedded in code samples.
-const stripe = require("stripe")("sk_test_WeTdH0dZDGzU2haZwNWn75LP00kj5GM1Ib", {
+const stripe = require("stripe")(process.env.SEC_KEY, {
   apiVersion: "2020-08-27; orders_beta=v3",
 });
 const express = require("express");

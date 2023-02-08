@@ -1,4 +1,4 @@
-const stripe = require("stripe")("sk_test_WeTdH0dZDGzU2haZwNWn75LP00kj5GM1Ib", {
+const stripe = require("stripe")(process.env.SEC_KEY, {
   stripeAccount: "acct_1KqOHIDLXCJQbu9g",
 });
 const express = require("express");

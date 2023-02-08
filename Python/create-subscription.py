@@ -65,7 +65,7 @@ def attach_pm(cus_id, pm):
 def create_sub(cus_id, price_id):
     return stripe.Subscription.create(
     customer=cus_id,
-    off_session=False,
+    # off_session=False,
     items=[
         {
         "price": price_id,

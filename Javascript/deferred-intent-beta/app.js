@@ -1,6 +1,7 @@
 const stripe = require("stripe")(process.env.SEC_KEY);
 const express = require('express');
 const app = express();
+app.use(express.static("."));
 
 app.post('/create-intent', async (req, res) => {
   const intent = await stripe.paymentIntents.create({

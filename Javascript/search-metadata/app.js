@@ -4,7 +4,7 @@ const app = express();
 app.use(express.static("."));
 app.use(express.json());
 
-const stripe = require('stripe-search-beta')("sk_test_WeTdH0dZDGzU2haZwNWn75LP00kj5GM1Ib")
+const stripe = require('stripe-search-beta')(process.env.SEC_KEY)
 
 // You can auto-paginate .search as you can with .list
 async function searchFun() {
