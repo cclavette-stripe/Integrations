@@ -6,7 +6,7 @@ load_dotenv()  # load .env defined environment
 # STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY')
 
 ######## Stripe Shop API key DO NOT GIT PUSH ###############
-stripe.api_key = 'sk_test_428DT589O8KAxCGbLmxyZDsH1k0qxHxkTytW2YbBTtus4fdpYyFm5PNaCk1Osw0IsAuB1S1dnoem2dmRmONmP9B8M00PkLAmLr9'
+stripe.api_key = os.getenv('STRIPE_SECRET_KEY')
 
 # DEFINE FUNCTIONS
 
