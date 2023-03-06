@@ -13,22 +13,21 @@ app.get('/', (req, res) => {
 
 app.post('/create-checkout-session', async (req, res) => {
     const session = await stripe.checkout.sessions.create({
+        mode: 'subscription',
         line_items: [
-        {
-            // Provide the exact Price ID (for example, pr_1234) of the product you want to sell
-            price: 'price_1KUgoCILwdSSnvJbHcrS5qHd',
-            quantity: 1,
-            // tax_rates: ['']
-        },
+            {
+                price: 'price_1MS5VYILwdSSnvJbwtONsNn4',
+                quantity: 1,
+            },
         ],
-        // automatic_tax: {
-        //     enabled: 'true',
-        // },
-        mode: 'payment',
-        // automatic_tax: {enabled: true},
-        success_url: `http://localhost:3000`,
-        cancel_url: `http://localhost:3000/`,
-        allow_promotion_codes: true
+        allow_promotion_codes: true,
+        success_url: `https://www.example.com`,
+        cancel_url: 'https://www.example.com',
+    
+        automatic_tax: {
+            enabled: true,
+        },
+        billing_address_collection: 'required',
     });
     
     res.redirect(303, session.url);

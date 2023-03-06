@@ -1,7 +1,7 @@
 // Set your publishable key: remember to change this to your live publishable key in production
 // See your keys here: https://dashboard.stripe.com/apikeys
 
-var stripe = Stripe('pk_test_51E7YoAILwdSSnvJbYXbLCN7UWIIdQqSL7pylRkdnvviU67fEUa4NOS0FnHThGINQNpgt2mEFvs3DgZCG5r78XrDZ00FzYvokfs');
+var stripe = Stripe('pk_live_OOExy2UUOX3OwkC4aTlNpJv7');
 var elements = stripe.elements({locale: 'fr_FR'});
 
 // Set up Stripe.js and Elements to use in checkout form

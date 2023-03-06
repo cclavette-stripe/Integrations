@@ -21,9 +21,7 @@ def create_price():
 
 def create_customer():
     return stripe.Customer.create(
-        name="Some Guy",
-        email='cclavette@stripe.com'
-        ## Reminder that test-mode emails must be manually sent via DB, Stripe will not auto-send them
+        name="Some Guy"
     )
 
 new_customer = create_customer()
@@ -31,29 +29,25 @@ new_customer = create_customer()
 def create_invoice_item():
     return stripe.InvoiceItem.create(
         customer=new_customer.id,
-        price=create_price().id,
+        amount= -122,
+        currency= "usd",
+        invoice='in_1Me0A5ILwdSSnvJbhbH9PPha'
     )
 
 def create_invoice():
     return stripe.Invoice.create(
         customer=new_customer.id,
-        collection_method="send_invoice",
-        days_until_due=3,
+        expand=['payment_intent']
     )
-
-def finalize():
-    return stripe.Invoice.finalize_invoice(
-        create_invoice().id,
-)
 
 def main():
     # testing Stripe instance properly configured
     create_invoice_item()
-    print(finalize())
+    print(create_invoice())
     
-
     
 if __name__ == "__main__":
     # This will run if this file is invoked from the command line
     main()
+    
     

@@ -13,5 +13,5 @@ $cs = $stripe->checkout->sessions->retrieve(
 
 $customer = $stripe->customers->retrieve($cs->customer);
 
-echo $cs;
-echo $customer;
+// echo $cs;
+echo $customer->id;

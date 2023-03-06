@@ -1,4 +1,4 @@
-const stripe = require('stripe')(process.env.SEC_KEY);
+const stripe = require('stripe')('sk_live_1HRzpb5mQzE5VUj6mVl6oCqa');
 const express = require('express');
 const app = express();
 

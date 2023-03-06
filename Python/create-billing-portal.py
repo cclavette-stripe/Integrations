@@ -36,7 +36,7 @@ def billing_port():
     )
 
     return stripe.billing_portal.Session.create(
-        customer="cus_Mb4GHVTViPWn1j",
+        customer="cus_NSFwg6lW5BMEGi",
         return_url="https://example.com/account",
         configuration=config.id
     )

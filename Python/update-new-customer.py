@@ -27,6 +27,17 @@ def update_customer():
         new_cus.id,
         invoice_settings= {
             "default_payment_method": new_pm.id
+        },
+        shipping={
+            "name": "Curry Clerk",
+            "address": {
+                "city": "",
+                "country": "",
+                "line1": "",
+                "postal_code": "",
+                "state": ""
+            },
+
         }
     )
 
