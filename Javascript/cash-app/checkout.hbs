@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Checkout</title>
+    <script src="https://js.stripe.com/v3/"></script>
+    <script src="checkout.js" defer></script>
+</head>
+
+<body>
+    <form id="payment-form" data-secret="{{ client_secret }}">
+  <div id="payment-element">
+    <!-- Elements will create form elements here -->
+  </div>
+
+  <button id="submit">Submit</button>
+</form>
+</body>

@@ -9,12 +9,24 @@ stripe.api_key = STRIPE_SECRET_KEY
 # DEFINE FUNCTIONS
 
 
+# def create_pm():
+#     return stripe.PaymentMethod.create(
+#         type="card",
+#         card={
+#             "number": "4242424242424242",
+#             "exp_month": 8,
+#             "exp_year": 2023,
+#             "cvc": "314",
+#         },
+#     )
+
+
 def test():
     setup_intent = stripe.SetupIntent.create(
-        payment_method="pm_1LgDOSILwdSSnvJbMYuc4W0h",
-        customer="cus_MP1RJAj7YHk6PL",
-        payment_method_options={"card": {"moto": True}},
-        confirm=True,
+        # payment_method=id,
+        # customer="cus_MP1RJAj7YHk6PL",
+        payment_method_options={"card"},
+        # confirm=True,
     )
     print(setup_intent)
 

@@ -7,17 +7,18 @@ STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY')
 stripe.api_key = STRIPE_SECRET_KEY
 
 # DEFINE FUNCTIONS
-def test():
-
-    accounts = stripe.Account.list(expand=["data.capabilities"])
-    print(accounts.data[0])
-    for i in accounts.data:
-        print(i.id, "created on: " + str(i.created))
+def payout():
+    payout = stripe.Payout.create(
+        amount=1100, 
+        currency="usd",
+        stripe_account="acct_1L0ajSRAzYcRRMwc"
+        )
+    print(payout)
 
 
 def main():
     # testing Stripe instance properly configured
-    test()
+    payout()
     
     
 if __name__ == "__main__":

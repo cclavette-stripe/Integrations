@@ -11,9 +11,14 @@ stripe.api_key = STRIPE_SECRET_KEY
 
 def update_account():
     account = stripe.Account.modify(
-        "acct_1MbpZeIALs4LlD4v",
-        tos_acceptance={"date": 1609798905, "ip": "8.8.8.8"},
-
+        "acct_1KbCDrRNufchDxGg",
+        capabilities={
+            "transfers": {
+                "requested": False
+            },
+            "card_issuing": {"requested": True},
+            "us_bank_account_ach_payments": {"requested": True}
+        }
     )
     print(account)
 
