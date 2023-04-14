@@ -18,6 +18,7 @@ payment = stripe.PaymentIntent.create(
       'destination': 'acct_1KbCDrRNufchDxGg',
     },
     application_fee_amount=700000,
+    description="this is a description",
     expand=['charges']
 )
 print(payment)

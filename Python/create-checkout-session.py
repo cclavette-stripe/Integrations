@@ -19,7 +19,13 @@ def test():
         }],
         mode='payment',
         # allow_promotion_codes=True,
-        payment_method_types=['card'],
+        # payment_method_options={
+        #     "us_bank_account": {
+        #         "financial_connections" : {
+        #             "permissions" : ["payment_method"]
+        #         }
+        #     }
+        # },
         success_url='https://example.com/success',
         cancel_url='https://example.com/cancel',
         # idempotency_key='u6rjmgMlligPRlUf'
