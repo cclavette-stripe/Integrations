@@ -1,7 +1,11 @@
 // This is your test publishable API key.
 const stripe = Stripe(
-  "pk_test_51E7YoAILwdSSnvJbYXbLCN7UWIIdQqSL7pylRkdnvviU67fEUa4NOS0FnHThGINQNpgt2mEFvs3DgZCG5r78XrDZ00FzYvokfs"
+  "pk_test_51E7YoAILwdSSnvJbYXbLCN7UWIIdQqSL7pylRkdnvviU67fEUa4NOS0FnHThGINQNpgt2mEFvs3DgZCG5r78XrDZ00FzYvokfs", {
+    apiVersion: '2020-08-27'
+  }
 );
+
+
 
 // The items the customer wants to buy
 const items = [{ id: "xl-tshirt" }];
@@ -15,9 +19,9 @@ document
   .querySelector("#payment-form")
   .addEventListener("submit", handleSubmit);
 
-// Fetches a payment intent and captures the client secret
+// Fetches a setup intent and captures the client secret
 async function initialize() {
-  const response = await fetch("/create-payment-intent", {
+  const response = await fetch("/create-setup-intent", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ items }),
@@ -33,15 +37,7 @@ async function initialize() {
     },
   };
 
-  elements = stripe.elements({ 
-    appearance, 
-    clientSecret, 
-    layout: {
-      type: {
-        accordian: "tabs"
-      }
-      
-  } });
+  elements = stripe.elements({ appearance, clientSecret });
 
   const paymentElement = elements.create("payment");
   paymentElement.mount("#payment-element");
@@ -51,12 +47,13 @@ async function handleSubmit(e) {
   e.preventDefault();
   setLoading(true);
 
-  const { error } = await stripe.confirmPayment({
+  const { error } = await stripe.confirmSetup({
     elements,
     confirmParams: {
       // Make sure to change this to your payment completion page
-      return_url: "http://localhost:4242/checkout.html",
+      return_url: "http://localhost:3000/checkout.html",
     },
+    apiVersion: '2020-08-27'
   });
 
   // This point will only be reached if there is an immediate error when

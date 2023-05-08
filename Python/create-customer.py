@@ -11,7 +11,9 @@ stripe.api_key = STRIPE_SECRET_KEY
 
 def test():
 
-    customer = stripe.Customer.create()
+    customer = stripe.Customer.create(
+        name="This name has an apostrophe ' here"
+    )
     print(customer)
 
 

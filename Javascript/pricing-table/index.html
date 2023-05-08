@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Checkout</title>
+</head>
+
+<body>
+    <div>Payment Intents With Setup Intents</div>
+    <script async src="https://js.stripe.com/v3/pricing-table.js"></script>
+<stripe-pricing-table pricing-table-id="prctbl_1MRKvsILwdSSnvJbtjtqxrky"
+publishable-key="pk_test_51E7YoAILwdSSnvJbYXbLCN7UWIIdQqSL7pylRkdnvviU67fEUa4NOS0FnHThGINQNpgt2mEFvs3DgZCG5r78XrDZ00FzYvokfs">
+</stripe-pricing-table>
+    <form method="POST" action="/create-payment-intent">
+        <button id="submit-payment-intent" value="submit-payment-intent">Create Payment Intent</button>
+    </form>
+</body>
