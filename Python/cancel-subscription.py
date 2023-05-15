@@ -10,7 +10,7 @@ stripe.api_key = STRIPE_SECRET_KEY
 def test():
 
     sub = stripe.Subscription.delete(
-  "sub_1M5Fx4ILwdSSnvJbrbd39fxZ",
+  "sub_1N3op3ILwdSSnvJbjBBsEMLV",
 )
     print(sub)
 
