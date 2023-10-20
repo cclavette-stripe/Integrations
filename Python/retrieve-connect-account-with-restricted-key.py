@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 
 load_dotenv() # load .env defined environment 
 STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY')
-stripe.api_key = 'insert_restricted_key'
+stripe.api_key = STRIPE_SECRET_KEY
 
 # DEFINE FUNCTIONS
 def test():

@@ -34,7 +34,8 @@ def create_customer(clock_id):
 def create_sub(cus_id):
     return stripe.Subscription.create(
         customer=cus_id,
-        trial_end=1653984468,
+        cancel_at_period_end=True,
+        # trial_end=1653984468,
         items=[
             {
             'price': 'price_1Kw9ZWILwdSSnvJb3g6CS0sX',

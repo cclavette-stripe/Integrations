@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://js.stripe.com/v3/"></script>
+    <title>Payment</title>
+  </head>
+  <body>
+    <div id="checkout"></div>
+  </body>
+  <script>
+    const stripe = Stripe(
+      "pk_test_51E7YoAILwdSSnvJbYXbLCN7UWIIdQqSL7pylRkdnvviU67fEUa4NOS0FnHThGINQNpgt2mEFvs3DgZCG5r78XrDZ00FzYvokfs"
+    );
+    initialize();
+
+    async function initialize() {
+      const response = await fetch("/create-checkout-session", {
+        method: "POST",
+      });
+
+      const { clientSecret } = await response.json();
+
+      const checkout = await stripe.initEmbeddedCheckout({
+        clientSecret,
+      });
+
+      // Mount Checkout
+      checkout.mount("#checkout");
+    }
+  </script>
+</html>

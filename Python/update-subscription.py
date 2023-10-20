@@ -3,9 +3,8 @@ import os
 from dotenv import load_dotenv
 
 load_dotenv()  # load .env defined environment
-STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY')
+STRIPE_SECRET_KEY = os.getenv('SEC_KEY')
 stripe.api_key = STRIPE_SECRET_KEY
-new_item = create_item()
 
 
 # DEFINE FUNCTIONS
@@ -13,9 +12,13 @@ new_item = create_item()
 
 def change_sub():
     sub = stripe.Subscription.modify(
-        "sub_1Lrs7fILwdSSnvJbgUvNMOG4",
+        "sub_1NkwUFILwdSSnvJbIRclWyVS",
         # metadata={"order_id": "6735"},
-        # proration_behavior='invoice_immediately',
+        proration_behavior='always_invoice',
+        pay_immediately=False,
+        items = [{
+            "price": 'price_1NkveQILwdSSnvJbOPKiv1RW'
+        }],
         # # trial_end=1668549252
         # # billing_cycle_anchor= 1659807119,
         # items = [{

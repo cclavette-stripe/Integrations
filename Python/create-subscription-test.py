@@ -5,7 +5,7 @@ import os
 from dotenv import load_dotenv
 
 load_dotenv() # load .env defined environment 
-STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY')
+STRIPE_SECRET_KEY = os.getenv('SEC_KEY')
 stripe.api_key = STRIPE_SECRET_KEY
 
 # DEFINE FUNCTIONS
@@ -31,36 +31,42 @@ def create_price(prod_id):
         currency="usd",
     )
 
-def create_pm():
-    return stripe.PaymentMethod.create(
-        type="card",
-        card={
-            "number": "4242424242424242",
-            "exp_month": 5,
-            "exp_year": 2023,
-            "cvc": "314",
-        },
-    )
+# def create_pm():
+#     return stripe.PaymentMethod.create(
+#         type="card",
+#         card={
+#             "number": "4242424242424242",
+#             "exp_month": 5,
+#             "exp_year": 2023,
+#             "cvc": "314",
+#         },
+#     )
 
-def create_customer(name, pm):
+# def create_customer(name, pm):
+#     return stripe.Customer.create(
+#         name=name,
+#         # payment_method=pm
+#     )
+
+def create_customer(name):
     return stripe.Customer.create(
         name=name,
-        payment_method=pm
+        # payment_method=pm
     )
 
-def update_customer(cus_id, pm):
-    return stripe.Customer.modify(
-        cus_id,
-        invoice_settings={
-            "default_payment_method": pm
-        }
-    )
+# def update_customer(cus_id, pm):
+#     return stripe.Customer.modify(
+#         cus_id,
+#         # invoice_settings={
+#         #     "default_payment_method": pm
+#         # }
+#     )
 
-def attach_pm(cus_id, pm):
-    return stripe.PaymentMethod.attach(
-        pm,
-        customer=cus_id,
-    )
+# def attach_pm(cus_id, pm):
+#     return stripe.PaymentMethod.attach(
+#         pm,
+#         customer=cus_id,
+#     )
 
 def create_sub(cus_id, price_id):
     return stripe.Subscription.create(
@@ -74,10 +80,11 @@ def create_sub(cus_id, price_id):
     )
 
 def main():
-    new_pm = create_pm()
-    new_customer = create_customer('Gretchen Zimmer', new_pm)
-    attach_pm(new_customer.id, new_pm.id)
-    update_customer(new_customer.id, new_pm.id)
+    # new_pm = create_pm()
+    # new_customer = create_customer('Gretchen Zimmer', new_pm)
+    new_customer = create_customer('Gretchen Zimmer')
+    # attach_pm(new_customer.id, new_pm.id)
+    # update_customer(new_customer.id, new_pm.id)
     new_product = create_product()
     new_price = create_price("prod_NOnh3lD00jhSDY")
     new_sub = create_sub(new_customer.id, new_price.id)

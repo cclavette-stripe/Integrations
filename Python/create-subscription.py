@@ -5,7 +5,7 @@ import os
 from dotenv import load_dotenv
 
 load_dotenv() # load .env defined environment 
-STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY')
+STRIPE_SECRET_KEY = os.getenv('SEC_KEY')
 stripe.api_key = STRIPE_SECRET_KEY
 
 # DEFINE FUNCTIONS
@@ -37,7 +37,7 @@ def create_pm():
         card={
             "number": "4242424242424242",
             "exp_month": 5,
-            "exp_year": 2023,
+            "exp_year": 2029,
             "cvc": "314",
         },
     )
@@ -65,6 +65,7 @@ def attach_pm(cus_id, pm):
 def create_sub(cus_id, price_id):
     return stripe.Subscription.create(
     customer=cus_id,
+    pay_immediately=False,
     # off_session=False,
     items=[
         {

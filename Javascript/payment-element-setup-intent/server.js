@@ -15,7 +15,9 @@ app.post("/create-setup-intent", async (req, res) => {
 
   // Create a PaymentIntent with the order amount and currency
   const setupIntent = await stripe.setupIntents.create({
-
+    automatic_payment_methods: {
+      enabled: true,
+    },
   });
 
   res.send({

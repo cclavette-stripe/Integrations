@@ -3,7 +3,7 @@ import os
 from dotenv import load_dotenv
 
 load_dotenv()  # load .env defined environment
-STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY')
+STRIPE_SECRET_KEY = os.getenv('SEC_KEY')
 stripe.api_key = STRIPE_SECRET_KEY
 # stripe.api_version = "2018-02-28"
 
@@ -18,6 +18,7 @@ def test():
             'quantity': 1
         }],
         mode='payment',
+        customer='cus_OY2Zs60c0PSEv0',
         # allow_promotion_codes=True,
         # payment_method_options={
         #     "us_bank_account": {

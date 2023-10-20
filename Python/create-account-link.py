@@ -7,21 +7,21 @@ STRIPE_SECRET_KEY = os.getenv('SEC_KEY')
 stripe.api_key = STRIPE_SECRET_KEY
 
 # DEFINE FUNCTIONS
-def create_account():
-
-    account = stripe.Account.create(
-        # country='US',
-        type='express',
-        # settings={'payouts': {'schedule': {'interval': 'manual'}}},
-        email="cclavette+express@stripe.com"
+def login_link():
+    link = stripe.AccountLink.create(
+        account='acct_1NpDxYIHkLFrk61E',
+        refresh_url="https://example.com/reauth",
+        return_url="https://example.com/return",
+        type="account_onboarding",
+        collect="eventually_due",
     )
-
-    print(account)
+        
+    return(link)
 
 
 def main():
     # testing Stripe instance properly configured
-    create_account()
+    print(login_link())
     
     
 if __name__ == "__main__":
