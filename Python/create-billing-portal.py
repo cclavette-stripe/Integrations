@@ -3,7 +3,7 @@ import os
 from dotenv import load_dotenv
 
 load_dotenv()  # load .env defined environment
-STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY')
+STRIPE_SECRET_KEY = os.getenv('SEC_KEY')
 stripe.api_key = STRIPE_SECRET_KEY
 
 # DEFINE FUNCTIONS
@@ -36,7 +36,7 @@ def billing_port():
     )
 
     return stripe.billing_portal.Session.create(
-        customer="cus_NSFwg6lW5BMEGi",
+        customer="cus_Ow0IbKgs8QGkhf",
         return_url="https://example.com/account",
         configuration=config.id
     )

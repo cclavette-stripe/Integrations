@@ -9,8 +9,8 @@ stripe.api_key = STRIPE_SECRET_KEY
 # DEFINE FUNCTIONS
 def login_link():
     link = stripe.Account.create_login_link(
-        'acct_1KbCDrRNufchDxGg', 
-        redirect_url='https://www.someurl.com',
+        'acct_1OB3XGIEgKuwhGS9/FdcB4fZ9C5xp"', 
+        redirect_url='localhost:4242/checkout.html',
     )
     return(link)
 

@@ -5,9 +5,10 @@ const app = express();
 app.use(express.static("."));
 app.use(express.json());
 
-app.post("/", express.json({ type: "application/json" }), (req, res) => {
+app.post("/webhooks", express.json({ type: "application/json" }), (req, res) => {
   const event = req.body;
   const event_object = event.data.object;
+  console.log(event.data);
   // Handle the event
   switch (event.type) {
     case "payment_intent.succeeded":

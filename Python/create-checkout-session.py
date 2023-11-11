@@ -14,10 +14,10 @@ def test():
 
     session = stripe.checkout.Session.create(
         line_items=[{
-            'price': 'price_1Me05gILwdSSnvJbBRI5m5dt',
+            'price': 'price_1NyISZILwdSSnvJbuDjALFmV',
             'quantity': 1
         }],
-        mode='payment',
+        mode='subscription',
         customer='cus_OY2Zs60c0PSEv0',
         # allow_promotion_codes=True,
         # payment_method_options={
@@ -27,7 +27,7 @@ def test():
         #         }
         #     }
         # },
-        success_url='https://example.com/success',
+        success_url='http://localhost:4242/checkout.html',
         cancel_url='https://example.com/cancel',
         # idempotency_key='u6rjmgMlligPRlUf'
     )

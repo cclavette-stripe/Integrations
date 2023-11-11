@@ -6,16 +6,18 @@ app.use(express.static("."));
 app.use(express.json());
 
 app.post('/create-payment-intent', async (req, res) => {
+    const customer = await stripe.customers.create();
+
     const paymentIntent = await stripe.paymentIntents.create({
         amount: 1099,
         currency: 'usd',
-        capture_method: 'automatic',
-        automatic_payment_methods: {
-            enabled: true,
-        },
+        customer: customer.id,
     });
+
+    res.send({ clientSecret: paymentIntent.client_secret });
 });
 
-app.listen(4242, () => {
-    console.log('Running on port 4242');
+
+app.listen(3000, () => {
+    console.log('Running on port 3000');
 });
