@@ -5,6 +5,7 @@ from dotenv import load_dotenv
 load_dotenv()  # load .env defined environment
 STRIPE_SECRET_KEY = os.getenv('SEC_KEY')
 stripe.api_key = STRIPE_SECRET_KEY
+stripe.api_version = '2020-08-27'
 
 
 # DEFINE FUNCTIONS
@@ -16,9 +17,10 @@ def change_sub():
         # metadata={"order_id": "6735"},
         proration_behavior='always_invoice',
         pay_immediately=False,
-        items = [{
-            "price": 'price_1NkveQILwdSSnvJbOPKiv1RW'
-        }],
+        # items = [{
+        #     "price": 'price_1NkveQILwdSSnvJbOPKiv1RW'
+        # }],
+        promotion_code='promo_1OHEmYILwdSSnvJbty4pu8oo'
         # # trial_end=1668549252
         # # billing_cycle_anchor= 1659807119,
         # items = [{

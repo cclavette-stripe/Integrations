@@ -33,6 +33,9 @@ def billing_port():
                 ],
             },
         },
+        login_page={
+            "enabled": True,
+        }
     )
 
     return stripe.billing_portal.Session.create(

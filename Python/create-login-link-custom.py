@@ -3,18 +3,31 @@ import os
 from dotenv import load_dotenv
 
 load_dotenv()  # load .env defined environment
-STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY')
+STRIPE_SECRET_KEY = os.getenv('SEC_KEY')
 stripe.api_key = STRIPE_SECRET_KEY
-
+ 
 # DEFINE FUNCTIONS
 
 
 def login_link():
+    account = stripe.Account.create(
+        type="custom",
+        email="seedfoundry.dev@gmail.com",
+        capabilities={
+            "card_payments" : {
+                "requested": True
+            },
+            "transfers" : {
+                "requested": True
+            }
+        }
+    )
     link = stripe.AccountLink.create(
-        account="acct_1KbCDrRNufchDxGg",
+        account=account.id,
         refresh_url="https://example.com/reauth",
         return_url="https://example.com/return",
-        type="account_update",
+        type="account_onboarding",
+        collect="eventually_due"
     )
     return(link)
 

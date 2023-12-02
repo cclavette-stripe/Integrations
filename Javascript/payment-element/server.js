@@ -1,7 +1,10 @@
 const express = require("express");
 const app = express();
+
 // This is your test secret API key.
-const stripe = require("stripe")(process.env.SEC_KEY);
+const stripe = require('stripe')(process.env.SEC_KEY, {
+  apiVersion: '2022-11-15',
+});
 
 app.use(express.static("."));
 app.use(express.json());
@@ -26,7 +29,7 @@ app.post("/create-payment-intent", async (req, res) => {
     // automatic_payment_methods: {
     //   enabled: true,
     // },
-    capture_method: "manual",
+    // capture_method: "manual",
     setup_future_usage: "off_session",
     
   });

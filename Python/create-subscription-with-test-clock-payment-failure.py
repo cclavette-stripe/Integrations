@@ -6,7 +6,7 @@ import time
 from dotenv import load_dotenv
 
 load_dotenv()  # load .env defined environment
-STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY')
+STRIPE_SECRET_KEY = os.getenv('SEC_KEY')
 stripe.api_key = STRIPE_SECRET_KEY
 
 # DEFINE FUNCTIONS
@@ -31,7 +31,7 @@ def create_pm():
             # Test card for failed payment after successfull attach
             "number": "4000000000000341",
             "exp_month": 5,
-            "exp_year": 2023,
+            "exp_year": 2025,
             "cvc": "314",
         },
     )

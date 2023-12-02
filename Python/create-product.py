@@ -5,15 +5,16 @@ from dotenv import load_dotenv
 load_dotenv() # load .env defined environment 
 STRIPE_SECRET_KEY = os.getenv('SEC_KEY')
 stripe.api_key = STRIPE_SECRET_KEY
-stripe.api_version = '2018-10-31'
-
 
 # DEFINE FUNCTIONS
 def test():
 
-    prod = stripe.Product.retrieve("prod_Olq8RXDqfuyTfF")
+    product = stripe.Product.create(
+        name="Gold Special",
+        type='good'
+    )
 
-    print(prod)
+    print(product)
 
 
 def main():

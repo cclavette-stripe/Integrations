@@ -25,36 +25,36 @@ async function initialize() {
   });
   const { clientSecret } = await response.json();
 
-  // const appearance = {
-  //   theme: "stripe",
-  //   rules: {
-  //     ".Input": {
-  //       backgroundColor: "transparent",
-  //       fontSize: "12px",
-  //       fontFamily: "Roboto, sans-serif",
-  //       color: "#ffffff",
-  //       padding: "8px",
-  //       borderColor: "#026C8E",
-  //       lineHeight: "18px",
-  //       width: "100%",
-  //     },
-  //     ".Label": {
-  //       fontFamily: "Roboto, sans-serif",
-  //       color: "#ffffff",
-  //       fontSize: "12px",
-  //     },
-  //   },
-  // };
+  const appearance = {
+    theme: "stripe",
+    rules: {
+      ".Input": {
+        backgroundColor: "transparent",
+        fontSize: "12px",
+        fontFamily: "Roboto, sans-serif",
+        color: "#ffffff",
+        padding: "8px",
+        borderColor: "#026C8E",
+        lineHeight: "18px",
+        // width: "100%",
+      },
+      ".Label": {
+        fontFamily: "Roboto, sans-serif",
+        color: "#ffffff",
+        fontSize: "12px",
+      },
+    },
+  };
+
+  const customerOptions = {
+    customer: 'cus_OY2Zs60c0PSEv0',
+  };
 
   elements = stripe.elements({ 
-    // appearance, 
-    clientSecret, 
-    layout: {
-      type: {
-        accordian: "tabs"
-      }
-      
-  } });
+    appearance, 
+    clientSecret,
+    customerOptions
+  });
 
   const paymentElement = elements.create("payment");
   paymentElement.mount("#payment-element");
