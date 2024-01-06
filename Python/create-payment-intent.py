@@ -17,8 +17,12 @@ def test():
         automatic_payment_methods={"enabled": True},
         description="this is a description",
         confirm=True,
-        payment_method='pm_1NkDieILwdSSnvJbXBgmLz1a',
-        return_url='https://www.sdlkf.com'
+        payment_method='pm_card_visa',
+        return_url='https://www.sdlkf.com',
+        metadata={
+            'key1': '',
+            'key2': 'vallue2'
+        }
     )
     print(balance)
 

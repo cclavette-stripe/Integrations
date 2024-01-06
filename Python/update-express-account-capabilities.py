@@ -10,15 +10,11 @@ stripe.api_key = STRIPE_SECRET_KEY
 
 
 def update_account():
-    account = stripe.Account.modify(
-        "acct_1MPDuvRHXEj5KAaO",
-        # tos_acceptance={"date": 1609798905, "ip": "8.8.8.8"},
-        capabilities={
-            "legacy_payments" : {
-                "requested": False
-            }
-        }
 
+    account = stripe.Account.modify_capability(
+        "acct_1MPDuvRHXEj5KAaO",
+        "legacy_payments",
+        requested=False,
     )
     print(account)
 

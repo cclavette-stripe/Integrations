@@ -9,23 +9,15 @@ stripe.api_key = STRIPE_SECRET_KEY
 # DEFINE FUNCTIONS
 
 
-def update_account():
-    account = stripe.Account.modify(
-        "acct_1MPDuvRHXEj5KAaO",
-        # tos_acceptance={"date": 1609798905, "ip": "8.8.8.8"},
-        capabilities={
-            "legacy_payments" : {
-                "requested": False
-            }
-        }
+def test():
 
-    )
-    print(account)
+    balance = stripe.Subscription.list(status='canceled')
+    print(balance)
 
 
 def main():
     # testing Stripe instance properly configured
-    update_account()
+    test()
 
 
 if __name__ == "__main__":
