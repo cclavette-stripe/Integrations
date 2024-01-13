@@ -17,8 +17,8 @@ def test():
             'price': 'price_1NyISZILwdSSnvJbuDjALFmV',
             'quantity': 1
         }],
-        mode='subscription',
-        customer='cus_OY2Zs60c0PSEv0',
+        mode='payment',
+        # customer='cus_OY2Zs60c0PSEv0',
         # allow_promotion_codes=True,
         # payment_method_options={
         #     "us_bank_account": {

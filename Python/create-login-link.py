@@ -3,14 +3,15 @@ import os
 from dotenv import load_dotenv
 
 load_dotenv() # load .env defined environment 
-STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY')
+STRIPE_SECRET_KEY = os.getenv('SEC_KEY')
 stripe.api_key = STRIPE_SECRET_KEY
 
 # DEFINE FUNCTIONS
 def login_link():
     link = stripe.Account.create_login_link(
-        'acct_1OB3XGIEgKuwhGS9/FdcB4fZ9C5xp"', 
-        redirect_url='localhost:4242/checkout.html',
+        'acct_1OXuAsROq4UmIp5U', 
+        redirect_url='http://localhost:4242/checkout.html',
+        
     )
     return(link)
 
