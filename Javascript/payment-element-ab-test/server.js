@@ -2,24 +2,17 @@ const express = require("express");
 const app = express();
 
 // This is your test secret API key.
-const stripe = require('stripe')(process.env.SEC_KEY);
+const stripe = require('stripe')(process.env.AB_TEST);
 
 app.use(express.static("."));
 app.use(express.json());
-
-const calculateOrderAmount = (items) => {
-  // Replace this constant with a calculation of the order's amount
-  // Calculate the order total on the server to prevent
-  // people from directly manipulating the amount on the client
-  return 1400;
-};
 
 app.post("/create-payment-intent", async (req, res) => {
   const { items } = req.body;
 
   // Create a PaymentIntent with the order amount and currency
   const paymentIntent = await stripe.paymentIntents.create({
-    amount: calculateOrderAmount(items),
+    amount: 1499,
     // payment_method_types: [
     //   "card",
     // ],
@@ -28,7 +21,7 @@ app.post("/create-payment-intent", async (req, res) => {
     },
     // capture_method: "manual",
     // setup_future_usage: "off_session",
-    currency: "gbp",
+    currency: "usd",
     
   });
 

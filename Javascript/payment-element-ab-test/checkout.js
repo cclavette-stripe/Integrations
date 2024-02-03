@@ -1,7 +1,7 @@
 // This is your test publishable API key.
 
 const stripe = Stripe(
-  "pk_test_51E7YoAILwdSSnvJbYXbLCN7UWIIdQqSL7pylRkdnvviU67fEUa4NOS0FnHThGINQNpgt2mEFvs3DgZCG5r78XrDZ00FzYvokfs",
+  "pk_test_51Of6ruKJvCEJVBeZhPXH7kidMxbvB5luBdwsYbKVQuj8ADHf4NORKRnYt2wEj0IbzdgFxOX5e383L35W6DhjN1ci00nlf5v4Ql",
 );
 
 // The items the customer wants to buy
@@ -25,33 +25,11 @@ async function initialize() {
   });
   const { clientSecret } = await response.json();
 
-  const appearance = {
-    theme: "night",
-    rules: {
-      ".Input": {
-        backgroundColor: "black",
-        fontSize: "12px",
-        fontFamily: "Roboto, sans-serif",
-        color: "#ffffff",
-        padding: "8px",
-        borderColor: "#026C8E",
-        lineHeight: "18px",
-        // width: "100%",
-      },
-      ".Label": {
-        fontFamily: "Roboto, sans-serif",
-        color: "#ffffff",
-        fontSize: "12px",
-      },
-    },
-  };
-
   const customerOptions = {
     customer: 'cus_OY2Zs60c0PSEv0',
   };
 
   elements = stripe.elements({ 
-    appearance, 
     clientSecret,
     customerOptions
   });

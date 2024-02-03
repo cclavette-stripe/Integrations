@@ -36,9 +36,14 @@ app.post('/create-customer', async (req, res) => {
     let paymentIntentId = req.body.pi;
     console.log('Creating customer with payment method: ' + paymentMethodId);
 
-    const customer = await stripe.customers.create({
-        payment_method: paymentMethodId
-    });
+    const customer = await stripe.customers.create();
+
+    const paymentMethod = await stripe.paymentMethods.attach(
+        paymentMethodId,
+        {
+          customer: customer.id,
+        }
+      );
 
     console.log('Customer created: ' + customer.id);
 

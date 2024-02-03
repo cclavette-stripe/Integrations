@@ -8,26 +8,27 @@
   </head>
   <body>
     <div id="checkout"></div>
+    <script>
+      const stripe = Stripe(
+        "pk_test_51ObRd1ApVXpcEQvt4oSaTilvm9RrOE0hMbprwQMOsW44FpYiBySHolQUBwh7NGAp6kMzLGB1bFsNEy0JqzU8Xhol005kYMxZE6"
+      );
+      initialize();
+  
+      async function initialize() {
+        const response = await fetch("/create-checkout-session", {
+          method: "POST",
+        });
+  
+        const { clientSecret } = await response.json();
+  
+        const checkout = await stripe.initEmbeddedCheckout({
+          clientSecret,
+        });
+  
+        // Mount Checkout
+        checkout.mount("#checkout");
+      }
+    </script>
   </body>
-  <script>
-    const stripe = Stripe(
-      "pk_test_51E7YoAILwdSSnvJbYXbLCN7UWIIdQqSL7pylRkdnvviU67fEUa4NOS0FnHThGINQNpgt2mEFvs3DgZCG5r78XrDZ00FzYvokfs"
-    );
-    initialize();
-
-    async function initialize() {
-      const response = await fetch("/create-checkout-session", {
-        method: "POST",
-      });
-
-      const { clientSecret } = await response.json();
-
-      const checkout = await stripe.initEmbeddedCheckout({
-        clientSecret,
-      });
-
-      // Mount Checkout
-      checkout.mount("#checkout");
-    }
-  </script>
+  
 </html>

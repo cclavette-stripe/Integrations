@@ -1,4 +1,4 @@
-const stripe = require('stripe')(process.env.SEC_KEY);
+const stripe = require('stripe')('sk_test_51ObRd1ApVXpcEQvtZ3bI4Nh9hqihdFSEmEwaQNK3DXzoX7pTSt2le5Fl7paC96Hw5mDb10e2NZu4aeG5JG69eR2G00vWnfro3T');
 const express = require('express');
 const app = express();
 
@@ -15,7 +15,7 @@ app.post('/create-checkout-session', async (req, res) => {
     const session = await stripe.checkout.sessions.create({
         line_items: [{
             price_data: {
-                currency: 'eur',
+                currency: 'gbp',
                 product_data: {
                     name: 'Something',
                 },
