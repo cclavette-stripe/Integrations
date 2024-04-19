@@ -11,22 +11,23 @@ stripe.api_key = STRIPE_SECRET_KEY
 
 def update_account():
     account = stripe.Account.modify(
-        "acct_1MPDuvRHXEj5KAaO",
-        settings={"payments": {"statement_descriptor": ""}}
-        # tos_acceptance={"date": 1609798905, "ip": "8.8.8.8"},
+        "acct_1KqOHIDLXCJQbu9g",
+        settings={"payments": {"statement_descriptor": "RUNNERS CLUB"}},
+        livemode=False
         # capabilities={
-        #     "legacy_payments" : {
+        #     "transfers": {
         #         "requested": False
-        #     }
+        #     },
+        #     "card_issuing": {"requested": True},
+        #     "us_bank_account_ach_payments": {"requested": True}
         # }
-
     )
     print(account)
 
 
 def main():
     # testing Stripe instance properly configured
-    update_account()
+    print(update_account())
 
 
 if __name__ == "__main__":

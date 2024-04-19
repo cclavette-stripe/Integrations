@@ -25,13 +25,10 @@ async function initialize() {
   });
   const { clientSecret } = await response.json();
 
-  const customerOptions = {
-    customer: 'cus_OY2Zs60c0PSEv0',
-  };
+  console.log(clientSecret);
 
   elements = stripe.elements({ 
-    clientSecret,
-    customerOptions
+    clientSecret
   });
 
   const paymentElement = elements.create("payment");

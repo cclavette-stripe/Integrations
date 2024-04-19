@@ -1,7 +1,7 @@
 // This is your test publishable API key.
 
 const stripe = Stripe(
-  "pk_test_51E7YoAILwdSSnvJbYXbLCN7UWIIdQqSL7pylRkdnvviU67fEUa4NOS0FnHThGINQNpgt2mEFvs3DgZCG5r78XrDZ00FzYvokfs",
+  "pk_test_51OeizIFsHUo8ra70hlAdMwKWxretrT3aaowrnCDB6OmJ7UoPRhJiNxejpmpewmxI6gFH0xbLaNGl8JgnaXgPN7Ww00wSAsLzFP"
 );
 
 // The items the customer wants to buy
@@ -47,17 +47,24 @@ async function initialize() {
   // };
 
   const customerOptions = {
-    customer: 'cus_OY2Zs60c0PSEv0',
+    customer: "cus_OY2Zs60c0PSEv0",
   };
 
-  elements = stripe.elements({ 
-    // appearance, 
+  elements = stripe.elements({
+    // appearance,
     clientSecret,
-    customerOptions
+    customerOptions,
   });
 
   const paymentElement = elements.create("payment");
   paymentElement.mount("#payment-element");
+
+  paymentElement.on("focus", function (event) {
+    // paymentElement.update({
+    //   defaultValues: { billingDetails: { address: { country: "CA" } } },
+    // });
+    elements.fetchUpdates();
+  });
 }
 
 async function handleSubmit(e) {
