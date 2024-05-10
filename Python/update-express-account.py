@@ -12,13 +12,16 @@ stripe.api_key = STRIPE_SECRET_KEY
 def update_account():
     account = stripe.Account.modify(
         "acct_1MPDuvRHXEj5KAaO",
-        settings={"payments": {"statement_descriptor": ""}}
+        # settings={"payments": {"statement_descriptor": ""}}
         # tos_acceptance={"date": 1609798905, "ip": "8.8.8.8"},
-        # capabilities={
-        #     "legacy_payments" : {
-        #         "requested": False
-        #     }
-        # }
+        capabilities={
+            "card_payments" : {
+                "requested": True
+            },
+            "wechat_pay_payments" : {
+                "requested": True
+            }
+        }
 
     )
     print(account)

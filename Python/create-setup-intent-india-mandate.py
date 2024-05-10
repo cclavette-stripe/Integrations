@@ -3,7 +3,7 @@ import os
 from dotenv import load_dotenv
 
 load_dotenv()  # load .env defined environment
-STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY')
+STRIPE_SECRET_KEY = os.getenv('SEC_KEY')
 stripe.api_key = STRIPE_SECRET_KEY
 
 # DEFINE FUNCTIONS
@@ -19,7 +19,7 @@ def test():
         card={
             "number": "4000002760003184",
             "exp_month": 8,
-            "exp_year": 2023,
+            "exp_year": 2029,
             "cvc": "314",
         },
     )
@@ -32,7 +32,8 @@ def test():
     setup_intent = stripe.SetupIntent.create(
         customer=new_customer,
         payment_method=new_pm,
-        confirm=False,
+        confirm=True,
+        return_url='https://example.com/success',
         payment_method_options={
             'card': {
                 'mandate_options': {
@@ -53,7 +54,8 @@ def test():
     print(setup_intent)
 
     stripe.SetupIntent.confirm(
-        setup_intent.id
+        setup_intent.id,
+        return_url='https://example.com/success',
     )
 
 

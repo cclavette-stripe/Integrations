@@ -1,5 +1,3 @@
-from ast import Subscript
-from tkinter import N
 import stripe
 import os
 from dotenv import load_dotenv

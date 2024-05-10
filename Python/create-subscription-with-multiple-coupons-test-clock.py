@@ -87,6 +87,7 @@ def create_sub(cus_id, price_id):
                 "price": price_id,
             },
         ],
+        discounts=[{"coupon": "50off4ever"}, {"coupon": "5E80ZjsS"}],
         # payment_settings={'save_default_payment_method': 'on_subscription'},
         expand=["pending_setup_intent"]
     )

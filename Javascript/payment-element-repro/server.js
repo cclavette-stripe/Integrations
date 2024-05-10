@@ -21,7 +21,7 @@ app.post("/create-payment-intent", async (req, res) => {
   const paymentIntent = await stripe.paymentIntents.create({
     amount: calculateOrderAmount(items),
     payment_method_types: [
-      "card",
+      "acss_debit",
     ],
     payment_method_options: {
       acss_debit: {
