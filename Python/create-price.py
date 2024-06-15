@@ -2,28 +2,29 @@ import stripe
 import os
 from dotenv import load_dotenv
 
-load_dotenv()  # load .env defined environment
+load_dotenv() # load .env defined environment 
 STRIPE_SECRET_KEY = os.getenv('SEC_KEY')
 stripe.api_key = STRIPE_SECRET_KEY
 
 # DEFINE FUNCTIONS
+def test():
 
-
-def update_account():
-
-    account = stripe.Account.modify_capability(
-        "acct_1OXuC0RDN4wWBeiY",
-        "card_payments",
-        requested=False,
+    product = stripe.Price.create(
+        currency="eur",
+        product="prod_PySM6EO0XghLjv",
+        unit_amount=2000,
     )
-    print(account)
+
+    print(product)
 
 
 def main():
     # testing Stripe instance properly configured
-    update_account()
-
-
+    test()
+    
+    
 if __name__ == "__main__":
     # This will run if this file is invoked from the command line
     main()
+    
+    

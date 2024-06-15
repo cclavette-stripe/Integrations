@@ -25,26 +25,26 @@ async function initialize() {
   });
   const { clientSecret } = await response.json();
 
-  // const appearance = {
-  //   theme: "night",
-  //   rules: {
-  //     ".Input": {
-  //       backgroundColor: "black",
-  //       fontSize: "12px",
-  //       fontFamily: "Roboto, sans-serif",
-  //       color: "#ffffff",
-  //       padding: "8px",
-  //       borderColor: "#026C8E",
-  //       lineHeight: "18px",
-  //       // width: "100%",
-  //     },
-  //     ".Label": {
-  //       fontFamily: "Roboto, sans-serif",
-  //       color: "#ffffff",
-  //       fontSize: "12px",
-  //     },
-  //   },
-  // };
+  const appearance = {
+    theme: "night",
+    rules: {
+      ".Input": {
+        backgroundColor: "black",
+        fontSize: "12px",
+        fontFamily: "Roboto, sans-serif",
+        color: "#ffffff",
+        padding: "8px",
+        borderColor: "#026C8E",
+        lineHeight: "18px",
+        // width: "100%",
+      },
+      ".Label": {
+        fontFamily: "Roboto, sans-serif",
+        color: "#ffffff",
+        fontSize: "12px",
+      },
+    },
+  };
 
   const customerOptions = {
     customer: 'cus_OY2Zs60c0PSEv0',
@@ -53,6 +53,7 @@ async function initialize() {
   elements = stripe.elements({ 
     // appearance, 
     clientSecret,
+    appearance,
     customerOptions
   });
 

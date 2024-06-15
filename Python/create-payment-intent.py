@@ -13,12 +13,26 @@ def test():
 
     balance = stripe.PaymentIntent.create(
         amount=2000,
-        currency="usd",
-        automatic_payment_methods={"enabled": True},
+        currency="eur",
+        # automatic_payment_methods={"enabled": True},
         description="this is a description",
-        confirm=True,
-        payment_method='pm_card_visa',
-        return_url='https://www.sdlkf.com',
+        # confirm=True,
+        # payment_method='pm_card_visa',
+        payment_method_types=['card'],
+        payment_method_options={
+            'card': {
+                'mandate_options': {
+                    'amount': 2000,
+                    'amount_type': 'fixed',
+                    'reference': '8675309',
+                    'interval': 'day',
+                    'interval_count': 1,
+                    'start_date': '1717785666',
+                    'supported_types': ['india'],
+                }
+            }
+        },
+        # return_url='https://www.sdlkf.com',
         metadata={
             'key1': '',
             'key2': 'vallue2'

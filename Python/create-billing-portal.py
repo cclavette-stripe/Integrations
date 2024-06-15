@@ -27,6 +27,14 @@ def billing_port():
                 "default_allowed_updates": ["price", "quantity", "promotion_code"],
                 "products": [
                     {
+                        "product": "prod_PySM6EO0XghLjv",
+                        "prices": ["price_1PHDPjILwdSSnvJbsegzPBX3"]
+                    },
+                    {
+                        "product": "prod_PylUWyCs0s9L4S",
+                        "prices": ["price_1P8nxeILwdSSnvJbL0UB4QRL"]
+                    },
+                    {
                         "product": "prod_MqjJntpSKFnMrP",
                         "prices": ["price_1MMJO1ILwdSSnvJbj3DhGODZ", "price_1MMJNoILwdSSnvJbH73xRFYy"]
                     }
@@ -39,7 +47,7 @@ def billing_port():
     )
 
     return stripe.billing_portal.Session.create(
-        customer="cus_Ow0IbKgs8QGkhf",
+        customer="cus_PyRzMBrnziLiKa",
         return_url="https://example.com/account",
         configuration=config.id
     )
