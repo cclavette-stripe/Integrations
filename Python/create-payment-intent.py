@@ -35,7 +35,7 @@ def test():
         # return_url='https://www.sdlkf.com',
         metadata={
             'key1': '',
-            'key2': 'vallue2'
+            'key2': 'value2'
         }
     )
     print(balance)

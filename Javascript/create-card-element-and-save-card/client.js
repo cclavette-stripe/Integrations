@@ -14,7 +14,14 @@ var style = {
   }
 };
 
-var card = elements.create("card", { style: style });
+var card = elements.create("card", { 
+  // style: style, 
+  hidePostalCode: true,
+  hideIcon: false,
+  showIcon: true,
+  iconStyle: 'solid',
+  preferredNetworks: ['visa', 'mastercard', 'amex', 'cartes_bancaires, discover', 'diners', 'jcb', 'unionpay']});
+
 card.mount("#card-element");
 
 card.on('change', ({error}) => {
@@ -22,7 +29,7 @@ card.on('change', ({error}) => {
   if (error) {
     displayError.textContent = error.message;
   } else {
-    displayError.textContent = '';
+    displayError.textContent = 'It changed!';
   }
 });
 

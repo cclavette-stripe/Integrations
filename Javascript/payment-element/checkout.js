@@ -46,15 +46,15 @@ async function initialize() {
     },
   };
 
-  const customerOptions = {
-    customer: 'cus_OY2Zs60c0PSEv0',
-  };
+  // const customerOptions = {
+  //   customer: 'cus_OY2Zs60c0PSEv0',
+  // };
 
   elements = stripe.elements({ 
     // appearance, 
     clientSecret,
     appearance,
-    customerOptions
+    // customerOptions
   });
 
   const paymentElement = elements.create("payment");

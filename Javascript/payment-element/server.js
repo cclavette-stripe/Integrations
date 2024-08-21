@@ -20,20 +20,20 @@ app.post("/create-payment-intent", async (req, res) => {
   // Create a PaymentIntent with the order amount and currency
   const paymentIntent = await stripe.paymentIntents.create({
     amount: calculateOrderAmount(items),
-    payment_method_types: [
-      "card",
-    ],
-    payment_method_options: {
-      acss_debit: {
-        mandate_options: {
-          payment_schedule: 'interval',
-          interval_description: 'First day of every month',
-          transaction_type: 'personal',
-        },
-      },
-    },
+    // payment_method_types: [
+    //   "card",
+    // ],
+    // payment_method_options: {
+    //   acss_debit: {
+    //     mandate_options: {
+    //       payment_schedule: 'interval',
+    //       interval_description: 'First day of every month',
+    //       transaction_type: 'personal',
+    //     },
+    //   },
+    // },
     automatic_payment_methods: {
-      enabled: false,
+      enabled: true,
     },
     // capture_method: "manual",
     // setup_future_usage: "off_session",

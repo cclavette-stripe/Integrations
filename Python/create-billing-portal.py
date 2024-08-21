@@ -25,18 +25,15 @@ def billing_port():
             "subscription_update": {
                 "enabled": True,
                 "default_allowed_updates": ["price", "quantity", "promotion_code"],
+                "proration_behavior": "always_invoice",
                 "products": [
                     {
-                        "product": "prod_PySM6EO0XghLjv",
-                        "prices": ["price_1PHDPjILwdSSnvJbsegzPBX3"]
+                        "product": "prod_QeLgrGL7wa2FTu",
+                        "prices": ["price_1Pn2z8ILwdSSnvJb9pTqUS7F"]
                     },
                     {
-                        "product": "prod_PylUWyCs0s9L4S",
-                        "prices": ["price_1P8nxeILwdSSnvJbL0UB4QRL"]
-                    },
-                    {
-                        "product": "prod_MqjJntpSKFnMrP",
-                        "prices": ["price_1MMJO1ILwdSSnvJbj3DhGODZ", "price_1MMJNoILwdSSnvJbH73xRFYy"]
+                        "product": "prod_QPPY0Wy7Y81x1G",
+                        "prices": ["price_1PYajVILwdSSnvJbt6hWHWd3"]
                     }
                 ],
             },
@@ -46,8 +43,10 @@ def billing_port():
         }
     )
 
+    print(config)
+
     return stripe.billing_portal.Session.create(
-        customer="cus_PyRzMBrnziLiKa",
+        customer="cus_OY2Zs60c0PSEv0",
         return_url="https://example.com/account",
         configuration=config.id
     )

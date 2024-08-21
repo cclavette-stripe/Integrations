@@ -1,11 +1,9 @@
-from ast import Subscript
-from tkinter import N
 import stripe
 import os
 from dotenv import load_dotenv
 
 load_dotenv() # load .env defined environment 
-STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY')
+STRIPE_SECRET_KEY = os.getenv('SEC_KEY')
 stripe.api_key = STRIPE_SECRET_KEY
 
 # DEFINE FUNCTIONS
@@ -39,7 +37,7 @@ def create_pm():
         card={
             "number": "4242424242424242",
             "exp_month": 5,
-            "exp_year": 2023,
+            "exp_year": 2028,
             "cvc": "314",
         },
     )

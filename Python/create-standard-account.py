@@ -9,18 +9,15 @@ stripe.api_key = STRIPE_SECRET_KEY
 # DEFINE FUNCTIONS
 
 
-def test():
-    charges = stripe.PaymentIntent.search(
-        query="""metadata['key2']:'value2'""",
-        
-    )
-    # print(charges.page)
-    print(charges)
+def update_account():
+    account = stripe.Account.create(type="standard")
+
+    print(account)
 
 
 def main():
     # testing Stripe instance properly configured
-    print(test())
+    print(update_account())
 
 
 if __name__ == "__main__":

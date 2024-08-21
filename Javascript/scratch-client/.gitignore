@@ -266,3 +266,6 @@ bootstrap/
 
 # Mac
 .DS_store
+
+*.key
+*.pem
